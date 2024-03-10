@@ -42,7 +42,22 @@ a {
     z-index: 1;
 }
 
-img {
+@media only screen and (max-width: 600px) {
+    .content {
+        margin: 20px 0px;
+        max-width: 85%;
+        margin: 10px auto; 
+    }
+}
+
+.content-body {
+    background-color: rgba(233, 147, 179, 0.9);
+    width: fill;
+    margin: 0px -20px 0px -20px; 
+    padding-bottom: 20px;
+}
+
+.banner {
     display: block;
     margin: auto;
     width: 100%;
@@ -75,6 +90,6 @@ button {
     padding: 20px;
     margin: 10px auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 95%;
+    width: 80%;
     background-color: #fff;
 }
