@@ -1,4 +1,5 @@
 @font-face { font-family: GN-KillGothic-U-KanaNA; src: url('fonts/GN-KillGothic-U-KanaNA.ttf'); } 
+@font-face { font-family: KozGoProRegular; src: url('fonts/KozGoProRegular.otf'); } 
 @font-face {
     font-family: 'GN-KillGothic-U-KanaNA';
     src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
@@ -74,6 +75,16 @@ h2 {
     color: #e993b3;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 3vh;
+}
+
+.leader {
+    font-family: KozGoProRegular, Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+    color: #e993b3;
+    margin: auto;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+    font-size: 2vh;
 }
 
 button {
