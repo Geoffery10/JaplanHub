@@ -82,6 +82,15 @@ h2 {
     margin: 1vh;
 }
 
+h3 {
+    font-family: MOBO, Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+    font-size: 1.5vh;
+    margin: 1vh;
+}
+
 .leader {
     font-family: KozGoProRegular, Arial, sans-serif;
     font-weight:normal;
@@ -104,8 +113,25 @@ button {
     border: 1px solid #ccc;
     border-radius: 30px;
     padding: 0px;
-    margin: 30px auto;
+    margin: 20px auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 80%;
     background-color: #fff;
+}
+
+.card p {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 1vh;
+}
+
+.card hr {
+    margin: 0vw;
+    width: 90%;
+    color: #e993b3;
+    border-style: none;
+    background-color: #e993b3;
+    height: 3px;
 }
