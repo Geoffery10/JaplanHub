@@ -101,6 +101,10 @@ h3 {
     font-size: 2vh;
 }
 
+li {
+    padding: 5px;
+}
+
 button {
     border: none;
 }
@@ -122,6 +126,15 @@ button {
 .card p {
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 1vh;
+    line-height: 1.8;
+}
+
+.card h3 {
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 1vh;
