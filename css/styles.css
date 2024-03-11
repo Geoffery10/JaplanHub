@@ -1,11 +1,6 @@
 @font-face { font-family: GN-KillGothic-U-KanaNA; src: url('fonts/GN-KillGothic-U-KanaNA.ttf'); } 
 @font-face { font-family: KozGoProRegular; src: url('fonts/KozGoProRegular.otf'); } 
-@font-face {
-    font-family: 'GN-KillGothic-U-KanaNA';
-    src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
+@font-face { font-family: MOBO; src: url('fonts/MOBO.otf'); } 
 
 body {
     margin: 0;
@@ -68,14 +63,23 @@ a {
     object-position: center;
 }
 
+.banner-card {
+    width: 100%;
+    height: 10%;
+    object-fit: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
 
 h2 {
-    font-family: GN-KillGothic-U-KanaNA, Arial, sans-serif;
+    font-family: MOBO, Arial, sans-serif;
     font-weight:normal;
     font-style:normal;
     color: #e993b3;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 3vh;
+    margin: 1vh;
 }
 
 .leader {
