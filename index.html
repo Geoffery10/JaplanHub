@@ -17,6 +17,7 @@
             @font-face { font-family: KozGoProRegular; src: url('fonts/KozGoProRegular.otf'); } 
             @font-face { font-family: MOBO; src: url('fonts/MOBO.otf'); } 
         </style>
+        <script src="js/api_call.js"></script>
     </head>
     <body>
         <div class="background"></div>
@@ -43,12 +44,15 @@
                             <p>Keep track of our budget on the <a
                                     href="https://docs.google.com/spreadsheets/d/1-UiayTDymejAxi2tsQvdXQvYJ4d0z53UehOFfQrk5U4/edit?usp=sharing"
                                     target="_blank">Google Sheet</a>.</p>
+                            <strong><p>Percentage funded: <span id="percentage_funded">[LOADING]</span></p></strong>
+                            <strong><p>Cost Per Person: <span id="cost_per_person">[LOADING]</span></p></strong>
                             <p><button
                                     onclick="window.location.href='/shares.html'"
                                     style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Sending
                                     Shares Here 💸</button></p>
                             <h2>Deadlines ⏰</h2>
                             <hr>
+                            <strong><p>Days Left Before Leaving: <span id="days_remaining">[LOADING]</span></p></strong>
                             <ul>
                                 <li>Get Passport (2/1)</li>
                                 <li>Ticket Funded (4/1)</li>
