@@ -5,7 +5,6 @@ window.onload = function() {
 function loadPercentageFunded(retries = 3) {
     fetch("https://api.japlanhub.com/japlan/get", {
         headers: {
-            "apikey": "1efc43c6-91a0-4b62-9beb-3dccb0491745",
             "Content-type": "application/json"
         }
     })
@@ -14,7 +13,8 @@ function loadPercentageFunded(retries = 3) {
         let percentageFunded = (Math.round(data['data']['percentage_funded'] * 10000) / 100).toFixed(2);
         document.getElementById('percentage_funded').textContent = percentageFunded + "%";
         document.getElementById('days_remaining').textContent = data['data']['days_left'];
-        document.getElementById('cost_per_person').textContent = "$" + (Math.round(data['data']['per_person_required_funding'] * 100) / 100).toFixed(2);
+        let costPerPerson = (Math.round(data['data']['per_person_required_funding'] * 100) / 100).toFixed(2);
+        document.getElementById('cost_per_person').textContent = "$" + costPerPerson.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     })
     .catch((error) => {
         console.error("Error fetching the data:", error);
