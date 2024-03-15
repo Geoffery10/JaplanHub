@@ -101,6 +101,11 @@ h3 {
     font-size: 2vh;
 }
 
+ul {
+    width: auto;
+    text-align: left;
+}
+
 li {
     padding: 5px;
 }
