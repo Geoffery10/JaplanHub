@@ -156,3 +156,23 @@ button {
     background-color: #e993b3;
     height: 0.25vh;
 }
+
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #5e7072;
+}
+
+
+
+th {
+    padding: 3px;
+    text-align: left;
+}
+
+td {
+    padding: 2px;
+}
