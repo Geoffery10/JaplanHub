@@ -113,6 +113,14 @@ li {
 
 button {
     border: none;
+    background-color: #ec91b0; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    border-radius: 5px; 
+    cursor: pointer;
 }
 
 .card {
@@ -127,6 +135,14 @@ button {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 80%;
     background-color: #fff;
+}
+
+#pink-card {
+    background-color: #f09fba;
+}
+
+#pink-card h2 {
+    color: #fff;
 }
 
 @media only screen and (max-width: 800px) {
@@ -182,4 +198,35 @@ th {
 
 td {
     padding: 2px;
+}
+
+.audio-button {
+    background: none; 
+    border: none; 
+    padding: 0;
+    width: 32px; 
+    height: 32px;
+    display: block;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.japanese-word {
+    display: flex; 
+    align-items: top; 
+    justify-content: left;
+    width: 100%;
+    gap: 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 0px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 80%;
+    background-color: #fff;
+    padding: 30px
+}
+
+.japanese-word ul {
+    padding-left: 20px;
 }

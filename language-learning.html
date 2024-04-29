@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Japlan Hub</title>
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="css/styles.css">
+        <style>
+            @font-face { font-family: GN-KillGothic-U-KanaNA; src: url('fonts/GN-KillGothic-U-KanaNA.ttf'); } 
+            @font-face { font-family: KozGoProRegular; src: url('fonts/KozGoProRegular.otf'); }
+            @font-face { font-family: MOBO; src: url('fonts/MOBO.otf'); }  
+        </style>
+        <script src="js/audio.js"></script>
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="content">
+            <article class="prose">
+                <center><img class="banner"
+                        src="image/language-learning.png"></p></center>
+            <center><p><button
+                        onclick="window.location.href='/index.html'"
+                        style="background-color: #ec91b0; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">
+                        Home </button></p></center>
+            <div class="content-body">
+                <div class="card">
+                    <h2>Learning Japanese: 🗣️</h2>
+                    <p>
+                        This page contains basic phrases to learn as well as
+                        some useful tools for language learning like our <a
+                            href="https://quizlet.com/910200448/japanese-learning-guide-for-travel-flash-cards/?i=3ndkbt&x=1jqt"
+                            target="_blank">Quizlet</a> and some recommended
+                        apps.
+                    </p>
+                </div>
+                <div class="card">
+                    <h2>Japanese Phrases:</h2>
+                    <div class="card" id="pink-card">
+                        <h2>Greetings 👋</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Ohayo_Gozaimasu.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            Good Morning - おはよう。 <br>Ohayō gozaimasu (Oh-hi-yoo
+                            go-zi-mas)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Konnichiwa.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            Hello - こんにちは。 <br>Kon'nichiwa (Kon-ni-chi wa)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Konbanwa.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            Good Evening - こんばんは。 <br>Konbanwa (Kon-ba-wa)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/watashi-wa-hatachi-desu-20-years-old.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>I am (name.) - 私はレイです。Watashi wa
+                                reidesu.
+                                (Wa-ta-she wa Rei des)
+                                <br><br>
+                                Using my name as an
+                                example, replace it with
+                                your name. I.e:
+                                <ul>
+                                    <li>Watashi wa Geoffery-desu.</li>
+                                    <li>Watashi wa Connor-desu.</li>
+                                </ul>
+                                You can also use this to say how old you
+                                are, like in the audio below.
+                                <ul>
+                                    <li>“I am 20 years old” - Watashi wa
+                                        hatachi
+                                        desu</li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Oyasuminasai.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>Goodnight - おやすみなさい。 <br>Oyasuminasai</span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2>Useful Words</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Arigatou-Gozaimasu.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>Thank you - ありがとうございます。 <br>Arigatou gozaimasu
+                                (Ar-re-ga-toe go-zi-mas)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Sumimasen.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>Excuse me - すみません。 <br>Sumimasen
+                                (Su-me-ma-sen)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Hai.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>Yes - はい <br>Hai (hi)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/audio/Iie.mp3')">
+                                <img class="audio-button"
+                                    src="image/speaker-icon.png"
+                                    alt="Listen">
+                            </button>
+                            <span>No - いいえ <br>Īe (ee-eh)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <center><p><button
+                            onclick="window.location.href='/index.html'"
+                            style="background-color: #ec91b0; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">
+                            Home </button></p></center>
+            </article>
+        </div>
+    </body>
+</html>
