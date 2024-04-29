@@ -6,3 +6,4 @@ function playAudio(url) {
     audio.preload = "auto";
     audio.play();
 }
+
