@@ -7,3 +7,10 @@ function playAudio(url) {
     audio.play();
 }
 
+function playSelectedAudio(id) {
+    var selectElement = document.getElementById(id);
+    var audioPath = selectElement.value;
+    if (audioPath) {
+        playAudio(audioPath);
+    }
+}

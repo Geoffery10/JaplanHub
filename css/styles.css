@@ -207,7 +207,7 @@ td {
     width: 32px; 
     height: 32px;
     display: block;
-    margin-left: 6px;
+    margin-left: 0px;
     margin-right: 6px;
 }
 
@@ -222,11 +222,31 @@ td {
     padding: 0px;
     margin: 20px auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 80%;
+    max-width: 80%;
     background-color: #fff;
-    padding: 30px
+    padding: 30px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 800px) {
+    .japanese-word {
+        max-width: 90%;
+        width: 90%;
+        padding: 0.8rem;
+        margin: 0.4rem 0px;
+    }
 }
 
 .japanese-word ul {
     padding-left: 20px;
+}
+
+.japanese-word select {
+    margin: auto;
+    max-width: 70%;
+}
+
+.japanese-word span {
+    margin: 0px;
+    max-width: 100%;
 }
