@@ -137,6 +137,20 @@ button {
     background-color: #fff;
 }
 
+.image-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 0px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 80%;
+    background-color: #fff;
+}
+
 #pink-card {
     background-color: #f09fba;
 }
