@@ -12,7 +12,7 @@ function loadPercentageFunded(retries = 3) {
     .then(data => {
         let percentageFunded = (Math.round(data['data']['percentage_funded'] * 10000) / 100).toFixed(2);
         document.getElementById('percentage_funded').textContent = percentageFunded + "%";
-        document.getElementById('days_remaining').textContent = data['data']['days_left'];
+        updateDaysRemaining(data);
         let costPerPerson = (Math.round(data['data']['per_person_required_funding'] * 100) / 100).toFixed(2);
         document.getElementById('cost_per_person').textContent = "$" + costPerPerson.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     })
@@ -29,3 +29,15 @@ function loadPercentageFunded(retries = 3) {
         }
     });
 }
+
+function updateDaysRemaining(data) {
+    let targetDate = new Date('2024-06-30');
+    let currentDate = new Date();
+    let diffInTime = targetDate.getTime() - currentDate.getTime();
+    let diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+
+    let daysLeft = Math.max(0, diffInDays);
+
+    document.getElementById('days_remaining').textContent = daysLeft;
+}
+
