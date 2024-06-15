@@ -25,6 +25,10 @@ a {
     color: #e993b3;
 }
 
+.center {
+    text-align: center;
+}
+
 .background {
     position: fixed;
     top: 0;
