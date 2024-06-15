@@ -1,6 +1,17 @@
-@font-face { font-family: GN-KillGothic-U-KanaNA; src: url('fonts/GN-KillGothic-U-KanaNA.ttf'); } 
-@font-face { font-family: KozGoProRegular; src: url('fonts/KozGoProRegular.otf'); } 
-@font-face { font-family: MOBO; src: url('fonts/MOBO.otf'); } 
+@font-face {
+    font-family: GN-KillGothic-U-KanaNA;
+    src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
+}
+
+@font-face {
+    font-family: KozGoProRegular;
+    src: url('fonts/KozGoProRegular.otf');
+}
+
+@font-face {
+    font-family: MOBO;
+    src: url('fonts/MOBO.otf');
+}
 
 body {
     margin: 0;
@@ -34,7 +45,7 @@ a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 800px;
     width: 100%;
-    margin: 100px auto; 
+    margin: 100px auto;
     z-index: 1;
 }
 
@@ -42,14 +53,14 @@ a {
     .content {
         margin: 20px 0px;
         max-width: 85%;
-        margin: 10px auto; 
+        margin: 10px auto;
     }
 }
 
 .content-body {
     background-color: rgba(233, 147, 179, 0.9);
     width: fill;
-    margin: 0px -20px 0px -20px; 
+    margin: 0px -20px 0px -20px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -74,8 +85,8 @@ a {
 
 h2 {
     font-family: MOBO, Arial, sans-serif;
-    font-weight:normal;
-    font-style:normal;
+    font-weight: normal;
+    font-style: normal;
     color: #e993b3;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 38px;
@@ -85,8 +96,8 @@ h2 {
 
 h3 {
     font-family: MOBO, Arial, sans-serif;
-    font-weight:normal;
-    font-style:normal;
+    font-weight: normal;
+    font-style: normal;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 18px;
     margin: 1vh;
@@ -94,8 +105,8 @@ h3 {
 
 .leader {
     font-family: KozGoProRegular, Arial, sans-serif;
-    font-weight:normal;
-    font-style:normal;
+    font-weight: normal;
+    font-style: normal;
     color: #e993b3;
     margin: auto;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
@@ -113,13 +124,13 @@ li {
 
 button {
     border: none;
-    background-color: #ec91b0; 
-    color: white; 
-    padding: 10px 20px; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    border-radius: 5px; 
+    background-color: #ec91b0;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -199,7 +210,8 @@ table {
     margin: 20px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #b1bcbd;
 }
 
@@ -215,10 +227,10 @@ td {
 }
 
 .audio-button {
-    background: none; 
-    border: none; 
+    background: none;
+    border: none;
     padding: 0;
-    width: 32px; 
+    width: 32px;
     height: 32px;
     display: block;
     margin-left: 0px;
@@ -226,8 +238,8 @@ td {
 }
 
 .japanese-word {
-    display: flex; 
-    align-items: top; 
+    display: flex;
+    align-items: top;
     justify-content: left;
     width: 100%;
     gap: 12px;
