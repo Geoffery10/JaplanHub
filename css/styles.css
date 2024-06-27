@@ -280,3 +280,21 @@ td {
     margin: 0px;
     max-width: 100%;
 }
+
+.squad-table {
+    border-collapse: collapse;
+}
+
+.squad-table th,
+.squad-table td {
+    border: none;
+}
+
+.squad-lead-pfp {
+    width: 12vh;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: #e993b3;
+    border-style: solid;
+}
