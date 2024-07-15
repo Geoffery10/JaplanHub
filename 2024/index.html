@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japlan Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/2024/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/2024/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/2024/favicon-16x16.png">
+    <link rel="manifest" href="/2024/site.webmanifest">
+    <link rel="stylesheet" href="../css/styles_2024.css">
+    <style>
+        @font-face {
+            font-family: GN-KillGothic-U-KanaNA;
+            src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
+        }
+
+        @font-face {
+            font-family: KozGoProRegular;
+            src: url('fonts/KozGoProRegular.otf');
+        }
+
+        @font-face {
+            font-family: MOBO;
+            src: url('fonts/MOBO.otf');
+        }
+    </style>
+    <!-- <script src="js/api_call.js"></script> -->
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <div>
+            <main>
+                <img class="banner" src="/2024/image/welcome-to-the-japlan.png"><br>
+                <div class="content-body">
+                    <div class="card">
+                        <br>
+                        <iframe width="95%" height="250" src="https://itsalmo.st/japlan-time-eukd" scrolling="no"
+                            frameborder="0" style="border-radius: 30px;"></iframe>
+                        <br>
+                    </div>
+                    <div class="card">
+                        <br>
+                        <img class="banner" src="/2024/image/information-hub.png"><br>
+                        <h2>Finances 💵</h2>
+                        <hr>
+                        <p>Keep track of our budget on the <a
+                                href="https://docs.google.com/spreadsheets/d/1-UiayTDymejAxi2tsQvdXQvYJ4d0z53UehOFfQrk5U4/edit?usp=sharing"
+                                target="_blank">Google Sheet</a>.</p>
+                        <strong>
+                            <p>Percentage funded: <span id="percentage_funded">100.46%</span></p>
+                        </strong>
+                        <strong>
+                            <p>Cost Per Person: <span id="cost_per_person">$3,075.76</span></p>
+                        </strong>
+                        <p><button onclick="window.location.href='/2024/shares.html'"
+                                style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Sending
+                                Shares Here 💸</button></p>
+                        <h2>Deadlines ⏰</h2>
+                        <hr>
+                        <strong>
+                            <p>Days Left Before Leaving: <span id="days_remaining">0</span></p>
+                        </strong>
+                        <ul>
+                            <li>Leave to Japan (6/30)</li>
+                            <li>Return Home (7/9)</li>
+                        </ul>
+                        <h2>Squads 🤝</h2>
+                        <hr>
+                        <p>Check out the <a href="/2024/squads.html">Squads</a>
+                            for
+                            info on squads and leaders.</p>
+                        <p><button onclick="window.location.href='/2024/squads.html'"
+                                style="background-color: #f7664b; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">
+                                Check out Squads 🤝 </button></p>
+                        <h2>Prepping Guides 📚</h2>
+                        <hr>
+                        <br>
+                        <button onclick="window.location.href='/2024/before-you-go.html'"
+                            style="background-color: #727c7f; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Before
+                            You Go Checklist ✅</button>
+                        <br>
+                        <button onclick="window.location.href='/2024/packing-guide.html'"
+                            style="background-color: #727c7f; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Packing
+                            Guide 🧳</button>
+                        <br>
+                        <button onclick="window.location.href='/2024/language-learning.html'"
+                            style="background-color: #727c7f; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Language
+                            Learning 🗣️</button>
+                        <br>
+                        <button onclick="window.location.href='/2024/phone-data.html'"
+                            style="background-color: #727c7f; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Phone
+                            Plans 📱</button>
+                        <br>
+                        <button
+                            onclick="window.location.href='https://docs.google.com/document/d/1Uj_GHzQs1wx-OeWSY0X5RsosxwayMieGeBRC8LIbXUw/edit?usp=drive_link'"
+                            style="background-color: #727c7f; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: none; border-radius: 5px; cursor: pointer;">Travel
+                            Folder 📂</button>
+                        <h2>Itinerary 🗺️</h2>
+                        <hr>
+                        <ul>
+                            <li>Check the <a href="/2024/itinerary.html">Itinerary</a>
+                                for details on what is happening while in
+                                Japan
+                                including hotel information.</li>
+                            <li>Check <a href="/2024/flight-info.html">flight
+                                    info</a> if you are flying out of
+                                Illinois.</li>
+                        </ul>
+                        <button onclick="window.location.href='/2024/itinerary.html'"
+                            style="background-color: #65c0c3; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">View
+                            Itinerary 🗺️</button>
+                        <br>
+                        <button onclick="window.location.href='/2024/flight-info.html'"
+                            style="background-color: #65c0c3; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">Flight
+                            Information ✈️</button>
+                        <br>
+                    </div>
+                </div>
+                <div class="center">
+                    <p><strong>Note:</strong> Make sure to regularly
+                        check
+                        this
+                        page for updates and additional information!
+                        Let's
+                        make
+                        Japlan unforgettable! 🎌✈️</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

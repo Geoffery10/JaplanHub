@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japlan Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/2024/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/2024/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/2024/favicon-16x16.png">
+    <link rel="manifest" href="/2024/site.webmanifest">
+    <link rel="stylesheet" href="../css/styles_2024.css">
+    <style>
+        @font-face {
+            font-family: GN-KillGothic-U-KanaNA;
+            src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
+        }
+
+        @font-face {
+            font-family: KozGoProRegular;
+            src: url('fonts/KozGoProRegular.otf');
+        }
+
+        @font-face {
+            font-family: MOBO;
+            src: url('fonts/MOBO.otf');
+        }
+    </style>
+    <script src="/2024/js/audio.js"></script>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <article class="prose">
+            <div class="center"><img class="banner" src="/2024/image/language-learning.png"></p>
+            </div>
+            <div class="center">
+                <p><button onclick="window.location.href='/2024/index.html'"
+                        style="background-color: #ec91b0; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">
+                        Home </button></p>
+            </div>
+            <div class="content-body">
+                <div class="card">
+                    <h2>Learning Japanese: 🗣️</h2>
+                    <p>
+                        This page contains basic phrases to learn as well as
+                        some useful tools for language learning like our <a
+                            href="https://quizlet.com/910200448/japanese-learning-guide-for-travel-flash-cards/?i=3ndkbt&x=1jqt"
+                            target="_blank">Quizlet</a> and some recommended
+                        apps. Hopefully with this basic training you won't end up like <a
+                            href="https://www.youtube.com/watch?v=grA5XmBRC6g">this guy</a>.
+                    </p>
+                </div>
+                <div class="card">
+                    <h2>Table of Contents</h2>
+                    <ul style="padding: 0px; font-size: 24px; margin-top: 0px;">
+                        <li><a href="#greetings">Greetings</a></li>
+                        <li><a href="#useful-words">Useful Words</a></li>
+                        <li><a href="#language">Language</a></li>
+                        <li><a href="#i-would-like">I would like</a></li>
+                        <li><a href="#where-is">Where is</a></li>
+                        <li><a href="#restaurant-etiquette">Restaurant Etiquette</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Japanese Phrases:</h2>
+                    <div class="card" id="pink-card">
+                        <h2 id="greetings">Greetings 👋</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Ohayo-Gozaimasu.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            Good Morning - おはよう。 <br>Ohayō gozaimasu (Oh-hi-yoo
+                            go-zai-mas)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Konnichiwa.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            Hello - こんにちは。 <br>Kon'nichiwa (Kon-ni-chi wa)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Konbanwa.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            Good Evening - こんばんは。 <br>Konbanwa (Kon-bahn-wa)
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Watashi-wa-reidesu.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>I am (name.) - 私はレイです。Watashi wa
+                                reidesu.
+                                (Wa-ta-she wa Rei des)
+                                <br><br>
+                                Using my name as an
+                                example, replace it with
+                                your name. I.e:
+                                <ul>
+                                    <li>Watashi wa Geoffery-desu.
+                                        <button class="audio-button"
+                                            onclick="playAudio('/2024/audio/Watashi-wa-Geoffery-desu.mp3')">
+                                            <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                                        </button>
+                                    </li>
+                                    <li>Watashi wa Connor-desu.
+                                        <button class="audio-button"
+                                            onclick="playAudio('/2024/audio/Watashi-wa-Connor-desu.mp3')">
+                                            <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                                        </button>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Hajime-mashite.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Nice to meet you - はじめまして。 <br>Hajimemashite
+                                (hah-jee-meh-mah-sh-teh)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Sayonara.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Goodbye - さようなら。 <br>Sayōnara
+                                (sah-yoh-nah-rah)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Oyasuminasai.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Goodnight - おやすみなさい。 <br>Oyasuminasai
+                                (oh-yah-suu-me-nah-sai)</span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2 id="useful-words">Useful Words</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Arigatou-Gozaimasu.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Thank you - ありがとうございます。 <br>Arigatou gozaimasu
+                                (Ah-ri-gah-toe go-zai-mas)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Sumimasen.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Excuse me - すみません。 <br>Sumimasen
+                                (Su-me-ma-sen)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Hai.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Yes - はい <br>Hai (hi)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Iie.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>No - いいえ <br>Īe (ee-eh)</span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2 id="language">Language 🗾</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Eigo-o-hanashimasu-ka.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Do you speak English? - 英語を話しますか？
+                                <br>Eigo o hanashimasu ka? (eh-go oh
+                                hana-she-mas ka?)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button"
+                                onclick="playAudio('/2024/audio/Gomen-Nihongo-ga-hanasemasen.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Sorry. I don’t speak Japanese - ごめん
+                                日本語が話せません。<br>Gomen. Nihongo ga hanasemasen.
+                                (Go-men. ni-hone-go ga hana-she-mah-sen)</span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2 id="i-would-like">I would like </h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Kudasai.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>I would like ____, please - ___をください。 __ o
+                                Kudasai (oh Ku-da-sai)
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button id="play-button" class="audio-button"
+                                onclick="playSelectedAudio('would-like-item-select')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>
+                                <select id="would-like-item-select"
+                                    onchange="playSelectedAudio('would-like-item-select')">
+                                    <option value="">Select an item</option>
+                                    <option value="/2024/audio/Mizu_Okudasai.mp3">Water - 水 (Mizu)</option>
+                                    <option value="/2024/audio/Ramen_o_Kudasai.mp3">Ramen - ラーメン(Ramen)</option>
+                                    <option value="/2024/audio/Sushi_o_Kudasai.mp3">Sushi - 寿司(Sushi)</option>
+                                    <option value="/2024/audio/Big_Mac_o_Kudasai.mp3">Big Mac - ビッグマック(Big Maco)
+                                    </option>
+                                </select>
+                                o Kudasai
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2 id="where-is">Where is </h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Dokodesuka.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Where is __? - ___ はどこですか。 __ wa doko desu ka? (___ wa doe-ko desu ka?)
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button id="play-button" class="audio-button"
+                                onclick="playSelectedAudio('where-is-item-select')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>
+                                <select id="where-is-item-select" onchange="playSelectedAudio('where-is-item-select')">
+                                    <option value="">Select an item</option>
+                                    <option value="/2024/audio/Eki-wa-doko-desu-ka.mp3">Train Station - 駅 Eki (eh-key)
+                                    </option>
+                                    <option value="/2024/audio/Basutei-wa-doko-desu-ka.mp3">Bus Stop - バス停 Basutei
+                                        (bah-su-tey)</option>
+                                    <option value="/2024/audio/Konbini-wa-doko-desu-ka.mp3">Convenience store -
+                                        コンビニKonbini
+                                        (Cone-bee-knee)</option>
+                                    <option value="/2024/audio/Depaato-wa-doko-desu-ka.mp3">Department store デパート
+                                        Depaato
+                                        (Deh-pah-to)</option>
+                                    <option value="/2024/audio/Toire-wa-doko-desu-ka.mp3">Toilet - トイレ Toire
+                                        (Toe-ee-reh)
+                                    </option>
+                                    <option value="/2024/audio/Kore-wa-doko-desu-ka.mp3">This - これ Kore (Ko-reh)
+                                    </option>
+                                </select>
+                                wa doko desu ka?
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card" id="pink-card">
+                        <h2 id="restaurant-etiquette">Restaurant Etiquette 🍜</h2>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Itadakimasu.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>BEFORE Meal: <br>いただきます。 Itadakimasu
+                                (E-tah-dah-key-mas)
+                                <ul>
+                                    <li>“Lets eat,” “Bon appetit,” “I’ll
+                                        enjoy this,” “Thanks for the
+                                        food”</li>
+                                    <li>Proper etiquette, you put your hands
+                                        together, say Itadakimasu and bow
+                                        slightly before picking up your
+                                        chopsticks and start eating.
+                                        🙏🍜</li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Gochisousama.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>AFTER Meal: ごちそうさまでした。 <br>Gochisousamadeshita
+                                (Go-chi-soo sa-ma de-shi-ta)
+                                <ul>
+                                    <li>“Thank you for the meal”</li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Oishii.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>Delicious - 美味しい。 <br>Oishii
+                                (oi-shee)</span>
+                        </div>
+                        <div class="japanese-word">
+                            <button class="audio-button" onclick="playAudio('/2024/audio/Arerugi-ga-arimasu.mp3')">
+                                <img class="audio-button" src="/2024/image/speaker-icon.png" alt="Listen">
+                            </button>
+                            <span>I’m allergic - アレルギーがあります。<br>Arerugī ga
+                                arimasu (A-re ru-gee ga a-re-ma-su)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <p><button onclick="window.location.href='/2024/index.html'"
+                        style="background-color: #ec91b0; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; cursor: pointer;">
+                        Home </button></p>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>
