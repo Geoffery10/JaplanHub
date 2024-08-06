@@ -22,7 +22,11 @@ body {
 }
 
 a {
-    color: #e993b3;
+    color: #dc5265;
+}
+
+p {
+    color: #ffe9ed;
 }
 
 .center {
@@ -35,22 +39,24 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://pa1.aminoapps.com/6792/1ad2bacdd1f75a96d15df2140dd2a4c654ddfb37_hq.gif');
+    background-image: url('../image/bg_2026.gif');
     background-size: cover;
     background-position: center;
     z-index: -1;
-    filter: blur(20px);
+    filter: blur(0px);
 }
 
 .content {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(37, 58, 102);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 800px;
     width: 100%;
     margin: 100px auto;
-    z-index: 1;
+    background-image: url('../image/banner_bg_2026.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 @media only screen and (max-width: 800px) {
@@ -62,7 +68,7 @@ a {
 }
 
 .content-body {
-    background-color: rgba(233, 147, 179, 0.9);
+    background-color: rgba(35, 32, 59, 0.75);
     width: fill;
     margin: 0px -20px 0px -20px;
     padding-top: 20px;
@@ -91,7 +97,7 @@ h2 {
     font-family: MOBO, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #e993b3;
+    color: rgb(215, 59, 86);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 38px;
     margin: 1vh;
@@ -111,7 +117,7 @@ h3 {
     font-family: KozGoProRegular, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
-    color: #e993b3;
+    color: rgb(215, 59, 86);
     margin: auto;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 2vh;
@@ -128,7 +134,7 @@ li {
 
 button {
     border: none;
-    background-color: #ec91b0;
+    background-color: rgb(215, 59, 86);
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -136,6 +142,9 @@ button {
     display: inline-block;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-box-shadow:0px 0px 19px 4px rgba(194,47,69,0.9);
+    -moz-box-shadow: 0px 0px 19px 4px rgba(194,47,69,0.9);
+    box-shadow: 0px 0px 19px 4px rgba(194,47,69,0.9);
 }
 
 .card {
@@ -143,13 +152,11 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
     border-radius: 30px;
     padding: 0px;
     margin: 20px auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 80%;
-    background-color: #fff;
+    background-color: rgba(23, 21, 43, 0.7);
 }
 
 .image-card {
@@ -166,12 +173,16 @@ button {
     background-color: #fff;
 }
 
+.card p {
+    color: #282447;
+}
+
 #pink-card {
-    background-color: #f09fba;
+    background-color: rgb(215, 59, 86);
 }
 
 #pink-card h2 {
-    color: #fff;
+    color: rgb(215, 59, 86);
 }
 
 @media only screen and (max-width: 800px) {
@@ -202,9 +213,8 @@ button {
 .card hr {
     margin: 0vw;
     width: 90%;
-    color: #e993b3;
     border-style: none;
-    background-color: #e993b3;
+    background-color: rgb(215, 59, 86);
     height: 0.25vh;
 }
 
