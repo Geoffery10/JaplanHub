@@ -39,7 +39,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../image/bg_2026.gif');
+    background-image: url('../2026/image/bg.gif');
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -54,7 +54,7 @@ p {
     max-width: 800px;
     width: 100%;
     margin: 100px auto;
-    background-image: url('../image/banner_bg_2026.jpg');
+    background-image: url('../2026/image/banner_bg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -157,6 +157,7 @@ button {
     margin: 20px auto;
     width: 80%;
     background-color: rgba(23, 21, 43, 0.7);
+    padding-bottom: 1vh;
 }
 
 .image-card {
@@ -171,10 +172,6 @@ button {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 80%;
     background-color: #fff;
-}
-
-.card p {
-    color: #282447;
 }
 
 #pink-card {
@@ -198,16 +195,31 @@ button {
     padding-right: 30px;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin: 1vh;
+    margin: 0.5vh;
     line-height: 1.8;
+    font-size: 18px;
+    color: #e9e6ff;
+    text-align: center;
 }
 
+.card h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0.5vh;
+    color: #ffffff;
+    font-size: 28px;
+    text-align: center;
+}
 .card h3 {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin: 1vh;
+    margin: 0.5vh;
+    color: #ffffff;
+    text-align: center;
 }
 
 .card hr {
