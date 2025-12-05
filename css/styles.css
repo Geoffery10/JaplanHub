@@ -181,7 +181,17 @@ button {
 }
 
 #pink-card h2 {
-    color: rgb(215, 59, 86);
+    color: white;
+}
+
+#pink-card li {
+    color: #5e7072;
+}
+
+#pink-card button {
+    -webkit-box-shadow:0px 0px 19px 4px rgba(194,47,69,0);
+    -moz-box-shadow: 0px 0px 19px 4px rgba(194,47,69,0);
+    box-shadow: 0px 0px 19px 4px rgba(194,47,69,0);
 }
 
 @media only screen and (max-width: 800px) {
