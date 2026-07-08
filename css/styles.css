@@ -621,14 +621,16 @@ td { padding: 2px; }
    index.html. Responsive tiers at 600/480/380px. */
 
 .countdown-card {
-    /* Inherits the .card glass surface (rgba(23, 21, 43, 0.88) bg,
-       1px white-alpha border, 30px radius). The dashboard's pink-
-       tinted variant was lifted initially but felt visually loud on
-       the public site, so the countdown card now matches the
-       Information / See Japlan 2024 cards exactly — it stands out
-       via position (above them) and the live-tile grid inside, not
-       via a different surface treatment. */
+    /* Pink-tinted glassy surface so the countdown reads as the page's
+       hero element above the other cards. Matches the dashboard's
+       main .countdown-card variant (lines 303-311 in
+       japlan-finances/.../styles.css). Information / See Japlan 2024
+       cards stay plain dark navy glass. */
     text-align: center;
+    background:
+        linear-gradient(135deg, rgba(215, 59, 86, 0.12), rgba(232, 134, 155, 0.04)),
+        rgba(23, 21, 43, 0.88);
+    border: 1px solid rgba(215, 59, 86, 0.32);
     overflow: hidden;
 }
 
