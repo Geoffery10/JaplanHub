@@ -283,11 +283,11 @@ code {
     border-radius: 2px;
 }
 
-/* .neon-ja — the Japanese-gothic neon subtitle (KozGoPro),
-   sits under the .neon-rule. Same glow structure as h1 but
-   tighter and a bit smaller — it's the supporting line. */
+/* .neon-ja — the neon subtitle, same Kosan font family as the h1 so
+   "Electric Boogaloo" reads as part of the same neon sign. Smaller
+   size and wider letter-spacing give it the supporting-line feel. */
 .hero .neon-ja {
-    font-family: 'KozGoPro', 'Noto Sans JP', sans-serif;
+    font-family: 'Kosan', var(--font-display);
     font-weight: 400;
     font-size: clamp(16px, 2.5vw, 22px);
     color: #ffe8ea;

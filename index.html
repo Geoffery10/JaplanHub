@@ -152,6 +152,56 @@
         setInterval(tick, 50);
     })();
     </script>
+
+    <!-- Page-wide neon flicker on the .hero h1. Runs once on page load,
+         then re-flickers on a 10-30s random cadence. The IIFE is defensive:
+         it's a no-op on pages without a .hero h1. CSS lives in styles.css
+         under the same selector. Skips entirely for users with
+         prefers-reduced-motion: reduce, and pauses while the tab is hidden
+         (Page Visibility API) so flickers don't fire on tab return. -->
+    <script>
+    (function () {
+        var h1 = document.querySelector(".hero h1");
+        if (!h1) return;
+
+        var prefersReduced = window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) return;
+
+        function flicker() {
+            h1.classList.remove("flicker");
+            // force reflow so the animation restarts cleanly on re-trigger
+            void h1.offsetWidth;
+            h1.classList.add("flicker");
+            setTimeout(function () { h1.classList.remove("flicker"); }, 550);
+        }
+
+        flicker();
+
+        // Don't queue flickers while the tab is hidden - they feel jarring
+        // when the user comes back. Page Visibility API gates the timer.
+        var timer = null;
+        function schedule() {
+            // 10,000-30,000 ms
+            var delay = 10000 + Math.floor(Math.random() * 20000);
+            timer = setTimeout(function () {
+                flicker();
+                schedule();
+            }, delay);
+        }
+        function pause() {
+            if (timer) { clearTimeout(timer); timer = null; }
+        }
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                pause();
+            } else if (!timer) {
+                setTimeout(schedule, 1000);
+            }
+        });
+        schedule();
+    })();
+    </script>
 </body>
 
 </html>
