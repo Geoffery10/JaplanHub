@@ -332,7 +332,7 @@ code {
 }
 
 .card h2 {
-    font-family: var(--font-display);
+    font-family: 'Zen Maru Gothic', 'Kosan', var(--font-display);
     font-weight: 700;
     font-size: 28px;
     color: var(--accent);
@@ -785,58 +785,39 @@ td { padding: 2px; }
 }
 
 /* ---- Section banner ----
-   A per-card big-text header. Lives in place of the old
-   pre-rendered PNG banners (e.g. "INFORMATION" / "SEE JAPLAN 2024"
-   that used to ship as baked-in text in
-   2026/image/information.png and 2026/image/see-japlan-2024.png).
-   Same neon-sign treatment as .hero h1 but tuned for use inside
-   a .card — slightly smaller font, padded edges so it doesn't
-   slam the card's rounded corners. The English label sits at
-   the top of the card; no Japanese subtitle by design. */
+   The per-card title for big sections (Information, See Japlan
+   2024 on the 2026 main page). Matches the .card h2 style used
+   by "Countdown to takeoff": 28px, weight 700, pink accent, no
+   glow, no uppercase. Font is Zen Maru Gothic, hot-linked from
+   Google Fonts in index.html. Falls back to the dashboard
+   display stack. */
 .section-banner {
-    font-family: 'Kosan', var(--font-display);
-    font-weight: normal;
-    font-size: clamp(28px, 5vw, 48px);
-    color: #ffe8ea;
+    font-family: 'Zen Maru Gothic', 'Kosan', var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--accent);
     text-align: center;
-    letter-spacing: 0.08em;
-    margin: 0;
-    padding: 28px 20px 28px;
-    text-transform: uppercase;
-    text-shadow:
-        0 0 1px #fff,
-        0 0 10px #fff,
-        0 0 1px #fcb5c1,
-        0 0 8px #fcb5c1,
-        0 0 28px var(--accent),
-        0 0 56px var(--accent),
-        0 0 86px var(--accent);
+    letter-spacing: 0.02em;
+    margin: 4px 0 8px;
+    padding: 0;
+    text-transform: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
 }
 
-/* The .card h2 default style (pink + 700 + 28px) is for the in-
-   card section names (e.g. "Finances 💵"). The .section-banner
-   is the bigger neon header that replaces the old PNG, so undo
-   the default h2 styling when both classes collide — and
-   explicitly re-state the text-shadow here, otherwise the parent
-   `h1, h2, h3 { text-shadow: ... }` rule (specificity 0,0,1)
-   would lose to ours (0,2,1) on specificity but it's our job
-   to make sure the 7-layer neon glow actually lands on the
-   element. */
+/* .card h2 default is already pink + 700 + 28px (matches the
+   "Countdown to takeoff" h2). The .section-banner override is
+   the same thing but with explicit font-family + zeroed-out
+   text-shadow so the parent's 7-layer neon glow doesn't land. */
 .card h2.section-banner {
-    color: #ffe8ea;
-    font-weight: normal;
-    font-size: clamp(28px, 5vw, 48px);
-    margin: 0;
-    padding: 28px 20px 28px;
-    letter-spacing: 0.08em;
-    text-shadow:
-        0 0 1px #fff,
-        0 0 10px #fff,
-        0 0 1px #fcb5c1,
-        0 0 8px #fcb5c1,
-        0 0 28px var(--accent),
-        0 0 56px var(--accent),
-        0 0 86px var(--accent);
+    color: var(--accent);
+    font-family: 'Zen Maru Gothic', 'Kosan', var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    margin: 4px 0 8px;
+    padding: 0;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
 }
 
 /* ---- "Moved to dashboard" banner ----
