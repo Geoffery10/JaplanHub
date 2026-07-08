@@ -1,37 +1,142 @@
+/* JaplanHub 2026 stylesheet.
+ *
+ * Visual standard lifted from the Japlan Dashboard
+ * (japlan-finances/src/japlan_finances/static/styles.css). Same
+ * design tokens, same neon hero, same glass card treatment. The
+ * 2024 subdirectory uses styles_2024.css and is intentionally left
+ * untouched for legacy reasons.
+ *
+ * Notable changes vs. the old styles.css:
+ *   - Cherry-blossom pink accent + navy palette via :root variables
+ *   - Kosan .otf for hero h1 (neon-sign style, with proper pink
+ *     multi-glow text-shadow — not the old white-outline approach)
+ *   - KozGoPr6NRegular.otf for .neon-ja subtitle (KozGoPro family)
+ *   - .neon-rule <hr> for the pink-glow rule between h1 and subtitle
+ *   - .card uses rgba(23, 21, 43, 0.88) + 1px white-alpha border +
+ *     20px 24px 24px padding (the dashboard's "glass card on bg"
+ *     feel — fills the page width, no 80% width constraint)
+ *   - .card h2 is the pink accent, .card hr has rounded ends
+ *   - Buttons get .btn / .btn-soft / .btn-hot / .btn-ghost classes
+ *     to replace inline-styled <button onclick="..."> back-buttons
+ *   - Reduced-motion safe
+ */
+
+/* ---- Font faces ---- */
+
+/* Kosan — neon-sign display font for hero h1 (from dashboard). */
+@font-face {
+    font-family: 'Kosan';
+    src: url('../fonts/Kosan.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* KozGoPr6N — Japanese Gothic for neon subtitle. Same file the
+   dashboard uses, kept here for parity. */
+@font-face {
+    font-family: 'KozGoPro';
+    src: url('../fonts/KozGoPr6NRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Legacy fonts — keep these declared so anything still referencing
+   the old font families (MOBO, KozGoProRegular, etc.) doesn't
+   silently fall back to Arial. Current refactor prefers Kosan +
+   KozGoPro, but these are still loaded. */
 @font-face {
     font-family: GN-KillGothic-U-KanaNA;
-    src: url('fonts/GN-KillGothic-U-KanaNA.ttf');
+    src: url('../fonts/GN-KillGothic-U-KanaNA.ttf') format('truetype');
+    font-display: swap;
 }
-
 @font-face {
     font-family: KozGoProRegular;
-    src: url('fonts/KozGoProRegular.otf');
+    src: url('../fonts/KozGoProRegular.otf') format('opentype');
+    font-display: swap;
 }
-
 @font-face {
     font-family: MOBO;
-    src: url('fonts/MOBO.otf');
+    src: url('../fonts/MOBO.otf') format('opentype');
+    font-display: swap;
+}
+
+/* ---- Design tokens ---- */
+
+:root {
+    /* Cherry-blossom pink — primary accent. */
+    --accent: #D73B56;
+    --accent-glow: rgba(194, 47, 69, 0.9);
+    --accent-soft: #dc5265;
+    --accent-pink-soft: #ffe6eb;
+    --accent-pink-text: #ffe9ed;
+
+    /* Dark navy palette. */
+    --bg-deep: #23203b;
+    --bg-deep-translucent: rgba(35, 32, 59, 0.75);
+    --bg-card: rgba(23, 21, 43, 0.7);
+    --bg-card-solid: #17152b;
+    --bg-outer: rgb(37, 58, 102);
+
+    --text-muted: #8a98a0;
+    --text-bright: #ffffff;
+    --text-card: #f5f3ff;
+    --text-soft: rgba(245, 243, 255, 0.78);
+
+    --radius-card: 30px;
+    --radius-button: 5px;
+    --shadow-card: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    --font-display: 'Kosan', 'MOBO', 'Zen Maru Gothic', 'Noto Sans JP', Arial, sans-serif;
+    --font-jp: 'KozGoPro', 'KozGoProRegular', 'Noto Sans JP', Arial, sans-serif;
+    --font-body: 'Noto Sans JP', Arial, sans-serif;
+}
+
+/* ---- Reset / base ---- */
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--text-card);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    color: #5e7072;
+    /* Layered: deep navy gradient on top, the 2026 bg.gif behind it,
+       fixed to viewport so the navy tint stays still while content
+       scrolls. The dashboard uses the canonical japlanhub.com URL
+       for the bg.gif (so prod and dev show the same thing). For
+       local previews, this also works because the public site
+       serves the same gif at 2026/image/bg.gif. */
+    background:
+        linear-gradient(rgba(35, 32, 59, 0.78), rgba(35, 32, 59, 0.92)),
+        url('https://japlanhub.com/2026/image/bg.gif') center / cover no-repeat fixed #17152b;
+    background-attachment: fixed, fixed;
 }
 
 a {
-    color: #dc5265;
+    color: var(--accent-soft);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.15s ease;
+}
+a:hover { border-bottom-color: var(--accent-soft); }
+
+p { color: var(--text-card); }
+
+code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9em;
+    color: var(--accent-pink-text);
 }
 
-p {
-    color: #ffe9ed;
-}
-
-.center {
-    text-align: center;
-}
+/* ---- Background layer (kept for markup parity, doesn't paint
+   anything — body bg already covers the viewport) ---- */
 
 .background {
     position: fixed;
@@ -39,230 +144,408 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../2026/image/bg.gif');
-    background-size: cover;
-    background-position: center;
     z-index: -1;
-    filter: blur(0px);
+    pointer-events: none;
 }
 
+/* ---- Top nav (commented out — 2026 pages have no nav by design.
+   Uncomment if a future page wants one. The styles below are the
+   dashboard's pill nav, ready to drop in.) ----
+.topnav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 18px;
+    flex-wrap: wrap;
+}
+.topnav a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-card);
+    background: rgba(23, 21, 43, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    padding: 8px 16px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.topnav a:hover {
+    color: var(--accent);
+    border-color: rgba(215, 59, 86, 0.4);
+    background: rgba(23, 21, 43, 0.85);
+}
+.topnav a.active {
+    color: #fff;
+    background: linear-gradient(155deg, rgba(215, 59, 86, 0.85), rgba(215, 59, 86, 0.5));
+    border-color: var(--accent);
+    box-shadow: 0 0 14px rgba(215, 59, 86, 0.45);
+}
+*/
+
+
+/* ---- Page shell (the dashboard's .page pattern: just max-width +
+   margin + padding, no bg/border/shadow — the body bg shows through
+   and the cards do all the visual work). ---- */
+
 .content {
-    background-color: rgb(37, 58, 102);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    width: 100%;
-    margin: 100px auto;
-    background-image: url('../2026/image/banner_bg.jpg');
-    background-size: cover;
-    background-position: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
 }
 
 @media only screen and (max-width: 800px) {
     .content {
-        margin: 20px 0px;
-        max-width: 85%;
-        margin: 10px auto;
+        padding: 20px 12px 40px;
     }
 }
 
+/* .content-body was the inner dark-translucent wrap that sat inside
+   the old outer card. With the wrapper gone, this is a no-op pass-
+   through. Keep the class so existing page markup doesn't break, but
+   don't paint anything. */
 .content-body {
-    background-color: rgba(35, 32, 59, 0.75);
-    width: fill;
-    margin: 0px -20px 0px -20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
 }
+
+/* ---- Hero ---- */
+
+.hero {
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 32px 20px;
+}
+
+/* Neon flicker keyframes — same as the dashboard, the h1 stutters
+   on like a failing neon tube. The .flicker class is added by JS
+   in _base.html; the CSS just defines the animation. */
+@keyframes japlan-neon-flicker {
+    0%   { opacity: 1; }
+    4%   { opacity: 0.25; }
+    8%   { opacity: 1; }
+    14%  { opacity: 0.4; }
+    18%  { opacity: 0.95; }
+    24%  { opacity: 0.2; }
+    30%  { opacity: 1; }
+    36%  { opacity: 0.6; }
+    44%  { opacity: 1; }
+    100% { opacity: 1; }
+}
+.hero h1.flicker {
+    animation: japlan-neon-flicker 0.5s steps(1, end) 1 both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero h1.flicker { animation: none; }
+}
+
+/* Hero h1 — Kosan neon sign with the dashboard's multi-layer pink
+   glow. The white 1px + 10px layers are the "tube core" of the
+   neon, the #fcb5c1 layers are the soft inner pink halo, and the
+   4 expanding var(--accent) layers are the outer neon glow. The
+   cascade of 42 → 82 → 92 → 102 → 151px glow radii is what makes
+   it read as a real neon sign rather than just outlined text. */
+.hero h1 {
+    font-family: 'Kosan', var(--font-display);
+    font-weight: normal;
+    font-size: clamp(40px, 6vw, 64px);
+    margin: 0;
+    color: #ffe8ea;
+    letter-spacing: 0.04em;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 10px #fff,
+        0 0 1px #fcb5c1,
+        0 0 8px #fcb5c1,
+        0 0 42px var(--accent),
+        0 0 82px var(--accent),
+        0 0 92px var(--accent),
+        0 0 102px var(--accent),
+        0 0 151px var(--accent);
+}
+
+/* .neon-rule — the small pink-glow <hr> between the h1 and the
+   .neon-ja subtitle. Drawn as a 2px line with multiple box-shadows
+   for the glow. */
+.hero .neon-rule {
+    border: none;
+    height: 2px;
+    margin: 12px auto 10px;
+    width: min(280px, 60%);
+    background: var(--accent);
+    box-shadow:
+        0 0 6px var(--accent),
+        0 0 16px var(--accent),
+        0 0 40px var(--accent),
+        0 0 60px rgba(215, 59, 86, 0.4);
+    border-radius: 2px;
+}
+
+/* .neon-ja — the Japanese-gothic neon subtitle (KozGoPro),
+   sits under the .neon-rule. Same glow structure as h1 but
+   tighter and a bit smaller — it's the supporting line. */
+.hero .neon-ja {
+    font-family: 'KozGoPro', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: #ffe8ea;
+    letter-spacing: 0.15em;
+    margin: 0;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 6px #fff,
+        0 0 1px #fcb5c1,
+        0 0 6px #fcb5c1,
+        0 0 28px var(--accent),
+        0 0 56px var(--accent);
+}
+
+/* .subtitle / .last-fetched — the two paragraphs that sit below
+   the neon subtitle. Only relevant on pages that use them. */
+.hero .subtitle {
+    margin: 6px 0 0;
+    color: var(--accent-pink-text);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+.hero .last-fetched {
+    margin: 14px 0 0;
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+/* ---- Cards (the dashboard's "glass card on bg" look) ---- */
+
+.card {
+    background-color: rgba(23, 21, 43, 0.88);
+    border-radius: var(--radius-card);
+    padding: 20px 24px 24px;
+    margin: 20px auto;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    /* No width constraint — cards fill the page. The 2026 site
+       used to constrain to 80% / 95% on mobile; the dashboard
+       style is full-width with the .content card itself centered. */
+}
+
+.card h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--accent);
+    margin: 4px 0 8px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+}
+
+.card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: #ffffff;
+    margin: 4px 0 6px;
+    text-align: left;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+}
+
+.card hr {
+    margin: 0 auto 18px;
+    border: none;
+    background-color: var(--accent);
+    height: 2px;
+    width: 90%;
+    border-radius: 2px;
+    opacity: 0.85;
+}
+
+.card p {
+    padding: 5px 6px;
+    margin: 0.5vh 0;
+    line-height: 1.8;
+    font-size: 18px;
+    color: var(--text-card);
+    text-align: center;
+}
+
+/* Nested cards (card-in-card pattern used on phone-data, etc.) */
+.card .card {
+    margin: 16px auto;
+}
+
+/* .card-footer — small caption-style line at the bottom of a card */
+.card-footer {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-soft);
+}
+.card-footer strong {
+    color: var(--text-bright);
+    font-weight: 700;
+}
+
+/* Image card variant — for the white-bg "Plans" cards inside
+   phone-data.html, etc. */
+.image-card {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    /* No radius — the parent .card already has 30px corners. */
+}
+
+/* ---- Banner / hero images (used at the top of inner pages) ---- */
 
 .banner {
     display: block;
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: center;
+    /* No border-radius — the .card already has 30px corners, and a
+       nested 6px radius on the image just creates a visible seam at
+       the top edge of the card. */
 }
 
 .banner-card {
+    display: block;
     width: 100%;
-    height: 10%;
+    height: auto;
+    max-height: 240px;
     object-fit: cover;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    object-position: center;
+    /* Same as .banner — no radius, the card's radius handles it. */
 }
 
+/* ---- Headings (outside the hero) ---- */
 
-h2 {
-    font-family: MOBO, Arial, sans-serif;
+h1, h2, h3 {
     font-weight: normal;
-    font-style: normal;
-    color: rgb(215, 59, 86);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
-    font-size: 38px;
-    margin: 1vh;
-    text-align: center;
 }
 
-h3 {
-    font-family: MOBO, Arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
-    font-size: 18px;
-    margin: 1vh;
-}
-
+/* .leader — Japanese-gothic subhead for things like squad lead
+   names. */
 .leader {
-    font-family: KozGoProRegular, Arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    color: rgb(215, 59, 86);
+    font-family: var(--font-jp);
+    color: var(--accent);
     margin: auto;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     font-size: 2vh;
 }
 
-ul {
-    width: auto;
-    text-align: left;
-}
+/* ---- Buttons (replaces the inline-styled back-buttons that
+   were on every page). Use class="btn" / "btn-soft" / "btn-hot"
+   / "btn-ghost" on <a> or <button> elements. ---- */
 
-li {
-    padding: 5px;
-    color: white;
-    font-size: 1.5vh;
-}
-
-button {
+button, .btn {
     border: none;
-    background-color: rgb(215, 59, 86);
+    background-color: var(--accent);
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: var(--radius-button);
     cursor: pointer;
-    -webkit-box-shadow:0px 0px 19px 4px rgba(194,47,69,0.9);
-    -moz-box-shadow: 0px 0px 19px 4px rgba(194,47,69,0.9);
-    box-shadow: 0px 0px 19px 4px rgba(194,47,69,0.9);
+    font-family: var(--font-body);
+    font-size: 16px;
+    box-shadow: 0 0 19px 4px var(--accent-glow);
+    transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+button:hover, .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 22px 6px var(--accent-glow);
+}
+button:active, .btn:active {
+    transform: translateY(0);
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    padding: 0px;
-    margin: 20px auto;
-    width: 80%;
-    background-color: rgba(23, 21, 43, 0.7);
-    padding-bottom: 1vh;
+/* Soft pink variant — the original 2026 pages used this inline
+   as background: #ffe6eb; color: #da5a6d on the "Home" button. */
+.btn-soft, button.btn-soft {
+    background-color: var(--accent-pink-soft);
+    color: #da5a6d;
+    box-shadow: 0 0 12px rgba(255, 230, 235, 0.4);
+}
+.btn-soft:hover, button.btn-soft:hover {
+    box-shadow: 0 0 16px rgba(255, 230, 235, 0.7);
 }
 
-.image-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    padding: 0px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 80%;
-    background-color: #fff;
+/* Hot-pink variant — some pages used background: #ec91b0 inline. */
+.btn-hot, button.btn-hot {
+    background-color: #ec91b0;
+    color: #fff;
 }
 
+/* Ghost variant — secondary actions (e.g. a "back" button on a
+   detail page). */
+.btn-ghost, button.btn-ghost {
+    background-color: transparent;
+    color: var(--accent-soft);
+    border: 1px solid var(--accent-soft);
+    box-shadow: none;
+}
+.btn-ghost:hover, button.btn-ghost:hover {
+    background-color: rgba(220, 82, 101, 0.12);
+    box-shadow: none;
+}
+
+/* Anchors styled as buttons — kill the dashed underline border. */
+a.btn, a.btn-soft, a.btn-hot, a.btn-ghost {
+    border-bottom: none;
+}
+a.btn:hover, a.btn-soft:hover, a.btn-hot:hover, a.btn-ghost:hover {
+    border-bottom: none;
+}
+
+/* Pink card variant — the language-learning "Greetings" card uses
+   id="pink-card" for an inverted-pink look. */
 #pink-card {
-    background-color: rgb(215, 59, 86);
+    background-color: var(--accent);
 }
-
 #pink-card h2 {
     color: white;
 }
-
 #pink-card li {
     color: #5e7072;
 }
-
 #pink-card button {
-    -webkit-box-shadow:0px 0px 19px 4px rgba(194,47,69,0);
-    -moz-box-shadow: 0px 0px 19px 4px rgba(194,47,69,0);
-    box-shadow: 0px 0px 19px 4px rgba(194,47,69,0);
+    box-shadow: 0 0 19px 4px rgba(194, 47, 69, 0);
 }
 
-@media only screen and (max-width: 800px) {
-    .card {
-        max-width: 95%;
-        width: 95%;
-    }
-}
+/* ---- Lists ---- */
 
-
-.card p {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0.5vh;
-    line-height: 1.8;
-    font-size: 18px;
-    color: #e9e6ff;
-    text-align: center;
+ul {
+    width: auto;
+    text-align: left;
+    color: var(--text-card);
 }
-
-.card h2 {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0.5vh;
-    color: #ffffff;
-    font-size: 28px;
-    text-align: center;
+li {
+    padding: 5px;
+    color: var(--text-card);
+    font-size: 1.5vh;
 }
-.card h3 {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0.5vh;
-    color: #ffffff;
-    text-align: center;
-}
+li strong { color: var(--accent-pink-text); }
 
-.card hr {
-    margin: 0vw;
-    width: 90%;
-    border-style: none;
-    background-color: rgb(215, 59, 86);
-    height: 0.25vh;
-}
-
+/* ---- Tables ---- */
 
 table {
     border-collapse: collapse;
     margin: 20px;
 }
+th, td { border: 1px solid #b1bcbd; }
+th { padding: 3px; text-align: left; }
+td { padding: 2px; }
 
-th,
-td {
-    border: 1px solid #b1bcbd;
-}
+.squad-table { border-collapse: collapse; }
+.squad-table th, .squad-table td { border: none; }
 
-
-
-th {
-    padding: 3px;
-    text-align: left;
-}
-
-td {
-    padding: 2px;
-}
+/* ---- Audio / Japanese word cards (language-learning) ---- */
 
 .audio-button {
     background: none;
@@ -271,8 +554,14 @@ td {
     width: 32px;
     height: 32px;
     display: block;
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 6px;
+    box-shadow: none;
+    cursor: pointer;
+}
+.audio-button:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .japanese-word {
@@ -282,13 +571,13 @@ td {
     width: 100%;
     gap: 12px;
     border: 1px solid #ccc;
-    border-radius: 30px;
-    padding: 0px;
+    border-radius: var(--radius-card);
+    padding: 30px;
     margin: 20px auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 80%;
     background-color: #fff;
-    padding: 30px;
+    color: #5e7072;
     overflow: auto;
 }
 
@@ -297,38 +586,296 @@ td {
         max-width: 90%;
         width: 90%;
         padding: 0.8rem;
-        margin: 0.4rem 0px;
+        margin: 0.4rem 0;
     }
 }
-
-.japanese-word ul {
-    padding-left: 20px;
-}
-
+.japanese-word ul { padding-left: 20px; }
 .japanese-word select {
     margin: auto;
     max-width: 70%;
 }
-
 .japanese-word span {
-    margin: 0px;
+    margin: 0;
     max-width: 100%;
 }
 
-.squad-table {
-    border-collapse: collapse;
-}
-
-.squad-table th,
-.squad-table td {
-    border: none;
-}
+/* ---- Squad lead PFPs ---- */
 
 .squad-lead-pfp {
     width: 12vh;
     height: auto;
     border-radius: 50%;
     object-fit: cover;
-    border: #e993b3;
-    border-style: solid;
+    border: #e993b3 solid 4px;
+}
+
+/* ---- Countdown ----
+   Lifted verbatim from the Japlan Dashboard
+   (japlan-finances/src/japlan_finances/static/styles.css, lines
+   303-470). Five tiles: a hero "days" tile (largest, pink-filled)
+   plus hh/mm/ss/ms. ms ticks every 50ms via the inline script in
+   index.html. Responsive tiers at 600/480/380px. */
+
+.countdown-card {
+    /* Inherits the .card glass surface (rgba(23, 21, 43, 0.88) bg,
+       1px white-alpha border, 30px radius). The dashboard's pink-
+       tinted variant was lifted initially but felt visually loud on
+       the public site, so the countdown card now matches the
+       Information / See Japlan 2024 cards exactly — it stands out
+       via position (above them) and the live-tile grid inside, not
+       via a different surface treatment. */
+    text-align: center;
+    overflow: hidden;
+}
+
+.countdown {
+    /* Tiles laid out as a responsive grid. The days tile is wider than the
+       other four (it's the visual anchor) so it spans 2 columns on desktop.
+       HH/MM/SS/MS tiles share the remaining columns. The ms tile is the
+       smallest visually since its digits tick fast — a "live ticker". */
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 0.7fr;
+    gap: 8px;
+    margin: 18px auto 10px;
+    max-width: 580px;
+    padding: 0 8px;
+}
+
+.cd-tile {
+    /* Each tile: rounded slab with the number on top, label below.
+       Background is a soft dark glass; numbers pop in tabular mono. */
+    background: rgba(0, 0, 0, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px 6px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 78px;
+    position: relative;
+    overflow: hidden;
+}
+.cd-tile::before {
+    /* Subtle top accent line on each tile — gives them a "ticker" feel
+       without screaming. */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 100%
+    );
+}
+
+.cd-tile--days {
+    /* The days tile is the hero — pink-tinted, larger, gradient-filled. */
+    background: linear-gradient(155deg, var(--accent), #ff7a93);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 22px rgba(215, 59, 86, 0.35);
+    min-height: 96px;
+}
+.cd-tile--days .cd-num {
+    /* White-on-pink for max contrast on the hero tile. */
+    color: #fff;
+}
+.cd-tile--days .cd-label {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cd-num {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+.cd-tile--days .cd-num {
+    /* Hero tile uses a much bigger number. */
+    font-size: 44px;
+}
+
+/* Millisecond tile — same background, border, and text colors as HH/MM/SS
+   so all four sub-day tiles look uniform. The number is just rendered
+   smaller because ms only has 3 digits and ticks fast — that already
+   reads as a "ticker" without needing extra visual treatment. */
+.cd-tile--ms {
+    padding: 12px 2px 8px;
+    min-height: 78px;
+}
+.cd-tile--ms .cd-num {
+    font-size: 18px;
+    letter-spacing: 0;
+}
+.cd-tile--ms .cd-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+}
+
+.cd-label {
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+}
+
+.countdown-meta {
+    margin: 8px 0 0;
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+/* ---- Countdown responsive ----
+   Tiers (broad → narrow):
+     ≤ 600px  shrink fonts, tighten tile padding
+     ≤ 480px  stack: days tile on top, hh/mm/ss on a 3-col row below
+     ≤ 380px  full 2x2 grid for hh/mm/ss tiles, days tile full width
+*/
+
+@media (max-width: 600px) {
+    .countdown { gap: 6px; padding: 0 4px; }
+    .cd-tile { padding: 10px 4px 7px; min-height: 64px; border-radius: 10px; }
+    .cd-tile--days { min-height: 78px; }
+    .cd-tile--ms { padding: 10px 2px 7px; }
+    .cd-num { font-size: 24px; }
+    .cd-tile--days .cd-num { font-size: 36px; }
+    .cd-tile--ms .cd-num { font-size: 14px; }
+    .cd-label { font-size: 9px; letter-spacing: 0.12em; }
+    .countdown-meta { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+    /* Days tile spans the full first row, hh/mm/ss/ms share row 2. */
+    .countdown {
+        grid-template-columns: 1fr 1fr 1fr 0.6fr;
+        grid-template-rows: auto auto;
+    }
+    .cd-tile--days {
+        grid-column: 1 / -1;
+        min-height: 72px;
+    }
+    .cd-tile--days .cd-num { font-size: 40px; }
+    .cd-num { font-size: 26px; }
+    .cd-tile--ms .cd-num { font-size: 13px; }
+}
+
+@media (max-width: 380px) {
+    /* On really narrow phones, hh/mm/ss/ms wrap to a 2x2 grid below the days tile. */
+    .countdown {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    .cd-tile--days {
+        grid-column: 1 / -1;
+    }
+    .cd-tile--days .cd-num { font-size: 34px; }
+    .cd-num { font-size: 22px; }
+    .cd-tile--ms .cd-num { font-size: 12px; }
+    .cd-label { font-size: 9px; }
+}
+
+/* ---- Section banner ----
+   A per-card big-text header. Lives in place of the old
+   pre-rendered PNG banners (e.g. "INFORMATION" / "SEE JAPLAN 2024"
+   that used to ship as baked-in text in
+   2026/image/information.png and 2026/image/see-japlan-2024.png).
+   Same neon-sign treatment as .hero h1 but tuned for use inside
+   a .card — slightly smaller font, padded edges so it doesn't
+   slam the card's rounded corners. The English label sits at
+   the top of the card; no Japanese subtitle by design. */
+.section-banner {
+    font-family: 'Kosan', var(--font-display);
+    font-weight: normal;
+    font-size: clamp(28px, 5vw, 48px);
+    color: #ffe8ea;
+    text-align: center;
+    letter-spacing: 0.08em;
+    margin: 0;
+    padding: 28px 20px 28px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 10px #fff,
+        0 0 1px #fcb5c1,
+        0 0 8px #fcb5c1,
+        0 0 28px var(--accent),
+        0 0 56px var(--accent),
+        0 0 86px var(--accent);
+}
+
+/* The .card h2 default style (pink + 700 + 28px) is for the in-
+   card section names (e.g. "Finances 💵"). The .section-banner
+   is the bigger neon header that replaces the old PNG, so undo
+   the default h2 styling when both classes collide — and
+   explicitly re-state the text-shadow here, otherwise the parent
+   `h1, h2, h3 { text-shadow: ... }` rule (specificity 0,0,1)
+   would lose to ours (0,2,1) on specificity but it's our job
+   to make sure the 7-layer neon glow actually lands on the
+   element. */
+.card h2.section-banner {
+    color: #ffe8ea;
+    font-weight: normal;
+    font-size: clamp(28px, 5vw, 48px);
+    margin: 0;
+    padding: 28px 20px 28px;
+    letter-spacing: 0.08em;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 10px #fff,
+        0 0 1px #fcb5c1,
+        0 0 8px #fcb5c1,
+        0 0 28px var(--accent),
+        0 0 56px var(--accent),
+        0 0 86px var(--accent);
+}
+
+/* ---- "Moved to dashboard" banner ----
+   Prepended to the 5 prep-guide HTML files (before-you-go, packing,
+   language-learning, phone-data, getting-a-passport) so visitors
+   who land on the public site via old links or bookmarks get
+   pointed at the canonical source on the Japlan Dashboard. The
+   local copy is kept for SEO + legacy reference. */
+.moved-banner {
+    background: linear-gradient(155deg, rgba(215, 59, 86, 0.18), rgba(215, 59, 86, 0.06));
+    border: 1px solid rgba(215, 59, 86, 0.45);
+    border-radius: var(--radius-card);
+    padding: 16px 22px;
+    margin: 0 auto 20px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 14px rgba(194, 47, 69, 0.2);
+}
+.moved-banner p {
+    margin: 0 0 8px;
+    color: var(--text-card);
+    font-size: 16px;
+    line-height: 1.5;
+}
+.moved-banner p:last-child { margin-bottom: 0; }
+.moved-banner strong { color: var(--accent-pink-text); }
+.moved-banner a {
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom-color: rgba(215, 59, 86, 0.4);
+}
+.moved-banner a:hover { border-bottom-color: var(--accent); }
+
+/* ---- Layout helpers ---- */
+
+.center { text-align: center; }
+.prose { width: 100%; }
+
+body > div.center > p strong,
+.content + .center p {
+    color: var(--text-soft);
 }
