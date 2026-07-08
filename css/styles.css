@@ -241,6 +241,22 @@ code {
     .hero h1.flicker { animation: none; }
 }
 
+/* Card load fade-in — each .card fades in and translates up 8px on
+   page load. Staggered with `--i` (0, 1, 2) so the cards cascade
+   in. Set --i inline on each <section class="card">. Reduced-motion
+   safe via the same media query. */
+@keyframes card-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.card {
+    animation: card-fade-in 0.5s ease-out both;
+    animation-delay: calc(var(--i, 0) * 80ms);
+}
+@media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+}
+
 /* Hero h1 — Kosan neon sign with the dashboard's multi-layer pink
    glow. The white 1px + 10px layers are the "tube core" of the
    neon, the #fcb5c1 layers are the soft inner pink halo, and the
