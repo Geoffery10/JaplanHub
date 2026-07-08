@@ -391,18 +391,6 @@ code {
     margin: 16px auto;
 }
 
-/* .card-footer — small caption-style line at the bottom of a card */
-.card-footer {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--text-soft);
-}
-.card-footer strong {
-    color: var(--text-bright);
-    font-weight: 700;
-}
-
 /* Image card variant — for the white-bg "Plans" cards inside
    phone-data.html, etc. */
 .image-card {
